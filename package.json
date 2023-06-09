@@ -1,7 +1,7 @@
 {
-  "name": "telegram",
-  "version": "2.17.8",
-  "description": "NodeJS/Browser MTProto API Telegram client library,",
+  "name": "@alch/gramjs",
+  "version": "0.0.3",
+  "description": "Fork of GramJS",
   "main": "index.js",
   "types": "index.d.ts",
   "scripts": {
