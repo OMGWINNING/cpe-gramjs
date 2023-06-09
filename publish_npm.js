@@ -90,7 +90,7 @@ npmi.on("close", (code) => {
     throw new Error("Error happened " + code);
   }
 
-  const tsc = exec("tsc");
+  const tsc = exec("npx tsc");
   tsc.stdout.on("data", function (data) {
     console.log("stdout: " + data.toString());
   });
@@ -187,3 +187,4 @@ npmi.on("close", (code) => {
     });
   });
 });
+
