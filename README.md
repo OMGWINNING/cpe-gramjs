@@ -1,3 +1,48 @@
+## @alch/gramjs
+
+> (longer term) We aim to replace GramJS entirely given it not written super well.
+
+`@alch/gramjs` is a fork of the npm `telegram` package (GramJS).
+We use it to interact with the Telegram API in `@alch/slackgram`.
+
+### Differences with `telegram`
+
+> 🙋 If Telegram adds new functionality, we should pull the latest version of GramJS into master and merge these changes into our `patch` branch.
+
+Our changes live in the `patch` branch.
+
+- removed the 60 seconds sleep loop that exists
+
+### Publishing changes
+
+> ❗️ Make sure to be in the `patch` branch before publishing.
+
+1. Login to NPM using the alchemy-team credentials in 1password.
+
+```bash
+npm login
+```
+
+2. Bump the version number in `package.json` and `package-lock.json` and commit the changes.
+
+```bash
+npm version patch
+```
+
+3. Make sure you are on the `patch` branch and push the changes.
+
+```bash
+git push origin patch
+```
+
+4. Make sure you have the `.npmrc` file in your home directory. If you don't, copy it from the alchemy-team 1password vault.
+
+5. Publish the package.
+
+```bash
+npm publish
+```
+
 # GramJS
 
 A Telegram client written in JavaScript for Node.js and browsers, with its core being based on
@@ -105,3 +150,4 @@ If your ISP is blocking Telegram, you can check [My ISP blocks Telegram. How can
 ## Ask a question
 
 If you have any questions about GramJS, feel free to open an issue or ask directly in our telegram group - [@GramJSChat](https://t.me/gramjschat).
+
