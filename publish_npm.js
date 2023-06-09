@@ -153,7 +153,7 @@ npmi.on("close", (code) => {
         throw new Error("Error happened " + code);
       }
 
-      const tsc = exec("tsc");
+      const tsc = exec("npx tsc");
       tsc.on("close", (code) => {
         if (code === 0) {
           fs.copyFileSync("package.json", "dist/package.json");
