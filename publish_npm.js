@@ -114,27 +114,28 @@ npmi.on("close", (code) => {
     fs.copyFileSync("gramjs/tl/api.d.ts", "browser/tl/api.d.ts");
     fs.copyFileSync("gramjs/define.d.ts", "browser/define.d.ts");
 
-    const npm_publish = exec(
-      `npm publish --tag browser --code ${process.env.OTP_CODE}`,
-      { cwd: "browser" }
-    );
-    npm_publish.stdout.on("data", function (data) {
-      console.log(data.toString());
-    });
+    // const npm_publish = exec(
+    //   `npm publish --tag browser --otp ${process.env.OTP_CODE}`,
+    //   { cwd: "browser" }
+    // );
+    // npm_publish.stdout.on("data", function (data) {
+    //   console.log(data.toString());
+    // });
 
-    npm_publish.stderr.on("data", function (data) {
-      console.error(data.toString());
-    });
+    // npm_publish.stderr.on("data", function (data) {
+    //   console.error(data.toString());
+    // });
 
-    npm_publish.on("close", (code) => {
-      if (code === 0) {
-        console.log("=====================================");
-        console.log("FINISHED UPLOADING BROWSER VERSION");
-        console.log("=====================================");
-      } else {
-        throw new Error("something went wrong", code);
-      }
-    });
+    // npm_publish.on("close", (code) => {
+    //   if (code === 0) {
+    //     console.log("=====================================");
+    //     console.log("FINISHED UPLOADING BROWSER VERSION");
+    //     console.log("=====================================");
+    //   } else {
+    //     throw new Error("something went wrong", code);
+    //   }
+    // });
+
     fs.rmSync("tempBrowser", { recursive: true, force: true });
     fs.rmSync("dist", { recursive: true, force: true });
     // easier that writing two files smh
@@ -171,7 +172,7 @@ npmi.on("close", (code) => {
           fs.copyFileSync("gramjs/define.d.ts", "dist/define.d.ts");
           renameFiles("dist", "delete");
           const npm_publish = exec(
-            `npm publish --code ${process.env.OTP_CODE}`,
+            `npm publish --otp ${process.env.OTP_CODE}`,
             { cwd: "dist" }
           );
           npm_publish.stdout.on("data", function (data) {
