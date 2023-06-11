@@ -147,7 +147,7 @@ npmi.on("close", (code) => {
     packageJSON.dependencies["node-localstorage"] = oldValueStorage;
     packageJSON.dependencies["socks"] = oldValueSocks;
     const oldVersion = packageJSON.version.split(".");
-    +oldVersion[2]++;
+    oldVersion[2]++;
     packageJSON.version = oldVersion.join(".");
 
     fs.writeFileSync(
