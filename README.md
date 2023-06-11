@@ -32,9 +32,9 @@ npm version patch
 
 3. Make sure you are on the `patch` branch and push the changes.
 
-<!-- ```bash
+```bash
 git push origin patch
-``` -->
+```
 
 4. Make sure you have the `.npmrc` file in your home directory. If you don't, copy it from the alchemy-team 1password vault.
 
