@@ -178,7 +178,7 @@ export async function _dispatchUpdate(
 export async function _updateLoop(client: TelegramClient): Promise<void> {
     while (client.connected) {
         try {
-            await sleep(60 * 1000);
+            // await sleep(60 * 1000);
             if (!client._sender?._transportConnected()) {
                 continue;
             }
@@ -233,3 +233,4 @@ function timeout(promise: Promise<any>, ms: number) {
         sleep(ms).then(() => Promise.reject(new Error("TIMEOUT"))),
     ]);
 }
+
