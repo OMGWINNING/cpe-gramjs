@@ -1,8 +1,13 @@
+const dotenv = require("dotenv");
+dotenv.config();
+
 const { exec } = require("child_process");
 const fs = require("fs");
 const path = require("path");
 
-// TODO if someone is brave enough to make all of this readable please do
+if (!process.env.OTP_CODE) {
+  throw new Error("Please set the OTP_CODE env variable");
+}
 
 function addBuffer(dir) {
   fs.readdirSync(dir).forEach((file) => {
@@ -109,7 +114,10 @@ npmi.on("close", (code) => {
     fs.copyFileSync("gramjs/tl/api.d.ts", "browser/tl/api.d.ts");
     fs.copyFileSync("gramjs/define.d.ts", "browser/define.d.ts");
 
-    const npm_publish = exec("npm publish --tag browser", { cwd: "browser" });
+    const npm_publish = exec(
+      `npm publish --tag browser --code ${process.env.OTP_CODE}`,
+      { cwd: "browser" }
+    );
     npm_publish.stdout.on("data", function (data) {
       console.log(data.toString());
     });
@@ -124,7 +132,7 @@ npmi.on("close", (code) => {
         console.log("FINISHED UPLOADING BROWSER VERSION");
         console.log("=====================================");
       } else {
-        throw new Error("something went wrong");
+        throw new Error("something went wrong", code);
       }
     });
     fs.rmSync("tempBrowser", { recursive: true, force: true });
@@ -162,7 +170,10 @@ npmi.on("close", (code) => {
           fs.copyFileSync("gramjs/tl/api.d.ts", "dist/tl/api.d.ts");
           fs.copyFileSync("gramjs/define.d.ts", "dist/define.d.ts");
           renameFiles("dist", "delete");
-          const npm_publish = exec("npm publish", { cwd: "dist" });
+          const npm_publish = exec(
+            `npm publish --code ${process.env.OTP_CODE}`,
+            { cwd: "dist" }
+          );
           npm_publish.stdout.on("data", function (data) {
             console.log(data.toString());
           });
