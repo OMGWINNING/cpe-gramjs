@@ -1,6 +1,6 @@
 {
   "name": "@alch/gramjs",
-  "version": "0.0.4",
+  "version": "0.0.1",
   "description": "Fork of GramJS",
   "main": "index.js",
   "types": "index.d.ts",
@@ -69,3 +69,4 @@
     "websocket": "^1.0.34"
   }
 }
+
