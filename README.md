@@ -25,27 +25,33 @@ Our changes live in the `patch` branch.
 npm login
 ```
 
-2. Clone the `.env.example` file and fill in the env variable `OPT_CODE` (you can get it from 1password).
+2. Clone the `.env.example` file.
 
 ```bash
 cp .env.example .env
 ```
 
-3. Bump the version number in `package.json` and `package-lock.json` and commit the changes.
+3. Fill in the env variable `OPT_CODE` (you can get it from 1password).
+
+```bash
+OPT_CODE=123456
+```
+
+4. Bump the version number in `package.json` and `package-lock.json` and commit the changes.
 
 ```bash
 npm version patch
 ```
 
-4. Make sure you are on the `patch` branch and push the changes.
+5. Make sure you are on the `patch` branch and push the changes.
 
 ```bash
 git push origin patch
 ```
 
-5. Make sure you have the `.npmrc` file in your home directory. If you don't, copy it from the alchemy-team 1password vault.
+6. Make sure you have the `.npmrc` file in your home directory. If you don't, copy it from the alchemy-team 1password vault.
 
-6. Publish the package.
+7. Publish the package.
 
 ```bash
 node publish_npm.js
