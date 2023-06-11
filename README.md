@@ -1,19 +1,20 @@
-## @alch/gramjs
+# @alch/gramjs
+
+> 🙋 If Telegram adds new functionality, we should pull the latest version of GramJS into master and merge these changes into our `patch` branch.
 
 > (longer term) We aim to replace GramJS entirely given it not written super well.
 
 `@alch/gramjs` is a fork of the npm `telegram` package (GramJS).
-We use it to interact with the Telegram API in `@alch/slackgram`.
 
-### Differences with `telegram`
+We use it to interact with the Telegram API in our `@alch/slackgram` package.
 
-> 🙋 If Telegram adds new functionality, we should pull the latest version of GramJS into master and merge these changes into our `patch` branch.
+## Differences with `telegram`
 
 Our changes live in the `patch` branch.
 
 - removed the 60 seconds sleep loop that exists
 
-### Publishing changes
+## Publishing changes
 
 > ❗️ Make sure to be in the `patch` branch before publishing.
 
@@ -31,9 +32,9 @@ npm version patch
 
 3. Make sure you are on the `patch` branch and push the changes.
 
-```bash
+<!-- ```bash
 git push origin patch
-```
+``` -->
 
 4. Make sure you have the `.npmrc` file in your home directory. If you don't, copy it from the alchemy-team 1password vault.
 
